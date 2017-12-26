@@ -13,6 +13,24 @@
                 <img class="detailImage" src="@Model.ImageUrl" />
             </div>
         </div>
+        <div class="col-md-4">
+            <p id="itemTitle">@Model.Title</p>
+            <p id="itemTitle">@Model.AuthorOrDirector</p>
+            <p id="itemTitle">@Model.Status</p>
+            <p id="itemTitle">@Model.Type</p>
+            <p id="itemTitle">@Model.CurrentLocation</p>
+
+            @if (Model.Status == "Checked Out")
+            {
+                <p id="itemPatron">Checked Out By: @Model.PatronName</p>
+            }
+
+            @if (Model.Status == "Available")
+            {
+                <p><a class="btn btn-lg btn-info" role="button" asp-controller="Catalog" asp-action="Checkout" asp-route-id="@Model.AssetId"</p>
+
+            }
+        </div>
     </div>
 </div>
 
